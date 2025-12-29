@@ -2,8 +2,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
-#SBATCH --partition=EPYC
-#SBATCH --account=dssc
+#SBATCH --partition=EPYC  
+#SBATCH --account=dssc    
 #SBATCH --time=00:30:00
 #SBATCH --job-name=omp_scaling
 #SBATCH --output=omp_scaling_%j.out
@@ -16,6 +16,9 @@ EXEC="./stencil_hybrid"
 ARGS="-x 1000 -y 1000 -n 1000"
 
 THREAD_COUNTS=(1 2 4 8 16 32 64 128)
+
+# Ensure the results directory exists
+mkdir -p results
 
 echo "Threads,MinTime,MaxTime,AvgTime" > results/omp_results.csv
 
