@@ -3,6 +3,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
 #SBATCH --partition=EPYC
+#SBATCH --account=uTS25_Tornator_0
 #SBATCH --time=00:30:00
 #SBATCH --job-name=omp_scaling
 #SBATCH --output=omp_scaling_%j.out
