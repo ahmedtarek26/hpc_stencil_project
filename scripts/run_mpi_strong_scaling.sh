@@ -15,7 +15,7 @@ module load openMPI/5.0.5
 EXEC="./stencil_hybrid"
 
 # Fixed problem size for strong scaling
-GRIDSIZE=4000
+GRIDSIZE=20000
 ITERATIONS=1000
 
 # Node counts - LIMITED TO 4 NODES MAX on EPYC/dssc
