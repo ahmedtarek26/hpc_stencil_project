@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
-#SBATCH --partition=epyc
+#SBATCH --partition=EPYC
 #SBATCH --account=dssc
 #SBATCH --time=00:05:00
 #SBATCH --job-name=test_stencil
