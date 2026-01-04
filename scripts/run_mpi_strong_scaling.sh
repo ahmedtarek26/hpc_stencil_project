@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --nodes=8              
+#SBATCH --nodes=5              
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
 #SBATCH --partition=EPYC       
@@ -19,7 +19,7 @@ GRIDSIZE=4000
 ITERATIONS=1000
 
 # Node counts - LIMITED TO 4 NODES MAX on EPYC/dssc
-NODE_COUNTS="1 2 4 8"
+NODE_COUNTS="1 2 4 5"
 
 # OpenMP threads per MPI task (adjust based on actual cores per EPYC node)
 THREADS_PER_TASK=128
