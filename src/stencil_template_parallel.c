@@ -215,13 +215,23 @@ int main(int argc, char **argv)
   output_energy_stat(-1, &planes[current], Niterations * Nsources * energy_per_source, Rank, &myCOMM_WORLD);
   
   /* Cleanup */
+  printf("DEBUG: Calling memory_release...\n");
   memory_release(&planes[0], &buffers[0]);
-  if (Sources_local) free(Sources_local);
-  free(g_per_thread_comp_time);
+  printf("DEBUG: memory_release done\n");
   
+  printf("DEBUG: About to free Sources_local at %p\n", (void*)Sources_local);
+  if (Sources_local) free(Sources_local);
+  printf("DEBUG: Sources_local freed\n");
+  
+  printf("DEBUG: About to free g_per_thread_comp_time at %p\n", (void*)g_per_thread_comp_time);
+  free(g_per_thread_comp_time);
+  printf("DEBUG: g_per_thread_comp_time freed\n");
+
+  printf("DEBUG: Calling MPI_Finalize\n");
   MPI_Finalize();
   return 0;
 }
+
 
 // ------------------------------------------------------------------
 // MEMORY ALLOCATE
