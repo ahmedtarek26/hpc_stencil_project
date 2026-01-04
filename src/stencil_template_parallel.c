@@ -280,12 +280,16 @@ int memory_release(plane_t *planes, buffers_t *buffers)
     if (planes[NEW].data) free(planes[NEW].data);
   }
   
-  /* Free buffers */
+  /* Free ONLY East/West buffers (North/South are pointers to plane data) */
   if (buffers) {
+    // ONLY free East/West - they were malloc'd
     if (buffers[SEND][EAST]) free(buffers[SEND][EAST]);
     if (buffers[SEND][WEST]) free(buffers[SEND][WEST]);
     if (buffers[RECV][EAST]) free(buffers[RECV][EAST]);
     if (buffers[RECV][WEST]) free(buffers[RECV][WEST]);
+    
+    // DO NOT free North/South - they point to plane data!
+    // buffers[SEND/RECV][NORTH/SOUTH] are set in main loop
   }
   
   return 0;
