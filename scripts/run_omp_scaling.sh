@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
-#SBATCH --partition=epyc
+#SBATCH --partition=EPYC
 #SBATCH --account=dssc
 #SBATCH --time=00:30:00
 #SBATCH --job-name=omp_scaling

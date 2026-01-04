@@ -2,7 +2,7 @@
 #SBATCH --nodes=4              # Max allowed
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
-#SBATCH --partition=epyc
+#SBATCH --partition=EPYC
 #SBATCH --account=dssc
 #SBATCH --time=01:00:00
 #SBATCH --job-name=mpi_weak
