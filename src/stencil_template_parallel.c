@@ -18,7 +18,7 @@ inline int inject_energy(const int periodic, const int Nsources, const vec2_t *S
                          const double energy, plane_t *plane, const vec2_t N);
 inline int update_plane(const int periodic, const vec2_t N, const plane_t *oldplane, plane_t *newplane);
 inline int get_total_energy(plane_t *plane, double *energy);
-int memory_release(plane_t *planes, buffers_t *buffers, vec2_t *sources_local);
+int memory_release(plane_t *planes, buffers_t *buffers)
 int memory_allocate(const uint neighbours[4], const vec2_t N, buffers_t *buffers_ptr, plane_t *planes_ptr);
 int output_energy_stat(int step, plane_t *plane, double budget, int Me, MPI_Comm *Comm);
 int initialize(MPI_Comm *Comm, int Me, int Ntasks, int argc, char **argv, vec2_t *S, vec2_t *N,
