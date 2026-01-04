@@ -282,18 +282,30 @@ int memory_release(plane_t *planes, buffers_t *buffers)
   
   /* Free ONLY East/West buffers (North/South are pointers to plane data) */
   if (buffers) {
-    // ONLY free East/West - they were malloc'd
-    if (buffers[SEND][EAST]) free(buffers[SEND][EAST]);
-    if (buffers[SEND][WEST]) free(buffers[SEND][WEST]);
-    if (buffers[RECV][EAST]) free(buffers[RECV][EAST]);
-    if (buffers[RECV][WEST]) free(buffers[RECV][WEST]);
-    
-    // DO NOT free North/South - they point to plane data!
-    // buffers[SEND/RECV][NORTH/SOUTH] are set in main loop
+    printf("DEBUG: About to free EAST buffers...\n");
+    if (buffers[SEND][EAST]) {
+      printf("DEBUG: Freeing SEND EAST at %p\n", buffers[SEND][EAST]);
+      free(buffers[SEND][EAST]);
+    }
+    if (buffers[SEND][WEST]) {
+      printf("DEBUG: Freeing SEND WEST at %p\n", buffers[SEND][WEST]);
+      free(buffers[SEND][WEST]);
+    }
+    printf("DEBUG: About to free RECV buffers...\n");
+    if (buffers[RECV][EAST]) {
+      printf("DEBUG: Freeing RECV EAST at %p\n", buffers[RECV][EAST]);
+      free(buffers[RECV][EAST]);
+    }
+    if (buffers[RECV][WEST]) {
+      printf("DEBUG: Freeing RECV WEST at %p\n", buffers[RECV][WEST]);
+      free(buffers[RECV][WEST]);
+    }
+    printf("DEBUG: Buffer cleanup done\n");
   }
   
   return 0;
 }
+
 
 
 // ------------------------------------------------------------------
