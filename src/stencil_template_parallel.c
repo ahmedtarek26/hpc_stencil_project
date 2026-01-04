@@ -215,7 +215,7 @@ int main(int argc, char **argv)
   output_energy_stat(-1, &planes[current], Niterations * Nsources * energy_per_source, Rank, &myCOMM_WORLD);
   
   /* Cleanup */
-  memory_release(&planes[0]);
+  memory_release(&planes[0], &buffers[0]);
   if (Sources_local) free(Sources_local);
   free(g_per_thread_comp_time);
   
