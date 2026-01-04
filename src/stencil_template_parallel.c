@@ -273,14 +273,24 @@ int memory_allocate(const int *neighbours, const vec2_t N, buffers_t *buffers_pt
 // ------------------------------------------------------------------
 // MEMORY RELEASE
 // ------------------------------------------------------------------
-int memory_release(plane_t *planes)
+int memory_release(plane_t *planes, buffers_t *buffers)
 {
   if (planes) {
     if (planes[OLD].data) free(planes[OLD].data);
     if (planes[NEW].data) free(planes[NEW].data);
   }
+  
+  /* Free buffers */
+  if (buffers) {
+    if (buffers[SEND][EAST]) free(buffers[SEND][EAST]);
+    if (buffers[SEND][WEST]) free(buffers[SEND][WEST]);
+    if (buffers[RECV][EAST]) free(buffers[RECV][EAST]);
+    if (buffers[RECV][WEST]) free(buffers[RECV][WEST]);
+  }
+  
   return 0;
 }
+
 
 // ------------------------------------------------------------------
 // OUTPUT ENERGY STAT
