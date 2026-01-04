@@ -36,7 +36,7 @@ int main(int argc, char **argv)
   
   int Nsources;
   int Nsources_local;
-  vec2_t *Sources_local;
+  vec2_t *Sources_local = NULL;  
   double energy_per_source;
   
   plane_t planes[2];
