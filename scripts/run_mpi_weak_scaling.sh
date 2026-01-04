@@ -19,7 +19,7 @@ BASE_SIZE=2000
 ITERATIONS=1000
 
 # Node counts - perfect squares for 2D decomposition, max 4 nodes
-NODE_COUNTS="1 4"  # 1x1, 2x2 task grids
+NODE_COUNTS="1 2 4"  # 1x1, 2x2 task grids
 
 THREADS_PER_TASK=128
 
