@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --nodes=16              
+#SBATCH --nodes=8              
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
 #SBATCH --partition=EPYC
@@ -19,7 +19,7 @@ BASE_SIZE=2000
 ITERATIONS=1000
 
 # Node counts - perfect squares for 2D decomposition, max 4 nodes
-NODE_COUNTS="1 2 4 8 16"  
+NODE_COUNTS="1 2 4 8"  
 
 THREADS_PER_TASK=128
 
